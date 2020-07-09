@@ -1,0 +1,21 @@
+<div class="alert alert-warning empty-cart" *ngIf="cartItems.length === 0">Carrinho vazio.</div>
+
+<ul class="list-group cart-list" *ngIf="cartItems.length > 0">
+  <h2 class="cart-header">
+    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+
+    <span class="circle-icon">{{ cartItems.length }}</span> 
+    SACOLA
+  </h2>
+  <li class="list-group-item product-item" *ngFor="let item of cartItems">
+    <app-cart-item [cartItem]="item" [allCartItems]="cartItems" (change)="countChange($event)"></app-cart-item>
+  </li>
+
+  <li class="list-group-item subtotal">
+    <span class="subtotal-label">SUBTOTAL</span>
+    <div class="values">
+      <strong><span class="subtotal-value" >{{ cartTotal | currency: 'BRL' }}</span></strong>
+      <span class="parceled-value">OU EM ATÉ 10 X R$ {{ (cartTotal/10) | number: '1.2-2' }}</span>
+    </div>
+  </li>
+</ul>

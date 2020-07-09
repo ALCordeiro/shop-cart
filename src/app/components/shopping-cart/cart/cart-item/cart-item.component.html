@@ -1,0 +1,9 @@
+<div class="cart-item cart-products">
+  <p (click)="removeItem()" class="remove-cart-item">X</p>
+  <h3 class="product-item">{{ cartItem.productName }}</h3>
+  <p class="size">{{ (cartItem.availableSizes[0]) }} | {{ cartItem.style }}</p>
+  <div class="qty-and-price">
+    <p class="qty">Quantidade: {{ cartItem.qty }}</p> 
+    <p class="price"><strong>{{ (cartItem.qty * cartItem.price) | currency: 'BRL' }}</strong></p>
+  </div>
+</div>
